@@ -25,13 +25,21 @@
             "detail": "Check types with ty"
         },
         {
+            "label": "uv: nbstripout",
+            "type": "shell",
+            "command": "find . -name '*.ipynb' -exec uv run nbstripout {} +",
+            "problemMatcher": [],
+            "detail": "Clean Jupyter outputs"
+        },
+        {
             "label": "uv: lint",
             "type": "shell",
             "dependsOrder": "sequence",
             "dependsOn": [
                 "uv: ruff format",
                 "uv: ruff check",
-                "uv: ty check"
+                "uv: ty check",
+                "uv: nbstripout"
             ],
             "group": {
                 "kind": "build",
